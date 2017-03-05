@@ -20,7 +20,7 @@ what I've learned over the years - separating logic from views, reusing
 files, sanitizing input, implementing PDO and using prepared statements
 in lieu of MySQL, etc. Hence, this repo.
 
-The original completed project will be retained in the `final-submitted-project`
+The original completed project will be retained in the `final-project-submitted`
 branch of this repo. The `master` branch, in turn will contain the latest
 changes for this app, as I continue to play with the data I generated
 way back in 2011, and apply everything that I've learned over the years.
