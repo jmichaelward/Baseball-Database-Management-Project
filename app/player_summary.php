@@ -2,32 +2,7 @@
 <html>
 <head>
 	<title>MLB Player Summary</title>
-	<style type="text/css">
-		body {
-			background-color: white;
-		}
-		
-		#container {
-			width: 800px;
-			margin: 0 auto;
-		}
-		
-		table {
-			background-color: beige;
-			border: 2px solid black;
-			padding: 10px;
-			width: 100%;
-		}
-		
-		th {
-			text-align: left;
-		}
-		
-		td, th {
-			vertical-align: top;
-			padding: 5px;
-		}
-	</style>
+	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<div id="container">
