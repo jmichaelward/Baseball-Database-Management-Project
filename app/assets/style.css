@@ -1,0 +1,33 @@
+/**
+ * Baseball Database Management Project CSS styles
+ *
+ * TODO: Add a preprocessor? We'll get there.
+ */
+body {
+    background-color: white;
+}
+
+#container {
+    margin: 0 auto;
+    width: 700px;
+}
+
+table {
+    background-color: beige;
+    border: 2px solid black;
+    padding: 10px;
+    width: 100%;
+}
+
+td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+input[type="text"] {
+    width: 250px;
+}
+
+textarea {
+    width: 100%;
+}
