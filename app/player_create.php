@@ -11,15 +11,12 @@
 include_once './src/class.db.php';
 $db = DB::get_instance();
 
-$fname    = $_POST['fname'];
-$lname    = $_POST['lname'];
-$position = $_POST['position'];
-$team     = $_POST['team'];
-
-$query = "INSERT INTO players VALUES" .
-         "('','$fname','$lname','$position','$team')";
-
-$result = mysqli_query( $db->connection(), $query );
+$fname    = filter_input( INPUT_POST, 'fname', FILTER_SANITIZE_STRING );
+$lname    = filter_input( INPUT_POST, 'lname', FILTER_SANITIZE_STRING );
+$position = filter_input( INPUT_POST, 'position', FILTER_SANITIZE_STRING );
+$team     = filter_input( INPUT_POST, 'team', FILTER_SANITIZE_STRING );
+$query    = "INSERT INTO players VALUES ('','$fname','$lname','$position','$team')";
+$result   = mysqli_query( $db->connection(), $query );
 
 echo "<p>Thank you for submitting $fname $lname to the database.</p>";
 

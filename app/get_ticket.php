@@ -10,14 +10,12 @@
 	<h1>Search Results</h1>
 	<?php
 	include_once './src/class.db.php';
-	$db = DB::get_instance();
 
-	$game    = $_POST['game'];
-	$section = $_POST['section'];
-
-	$query = "SELECT * FROM gameschedule WHERE game_id = '$game'";
-
-	$result = mysqli_query( $db->connection(), $query );
+	$db      = DB::get_instance();
+	$game    = filter_input( INPUT_POST, 'game', FILTER_SANITIZE_STRING );
+	$section = filter_input( INPUT_POST, 'section', FILTER_SANITIZE_STRING );
+	$query   = "SELECT * FROM gameschedule WHERE game_id = '$game'";
+	$result  = mysqli_query( $db->connection(), $query );
 
 	while ( $row = mysqli_fetch_assoc( $result ) ) {
 		echo "Available tickets in Section $section" . "<br>";
@@ -33,18 +31,16 @@
 		<th>Seat</th>
 		<th>Ticket Price</th>
 		<?php
-		$game    = $_POST['game'];
-		$section = $_POST['section'];
-
-		$query = "SELECT games.game_id, section_no, row_no, seat_no, ticket_price
+		$game    = filter_input( INPUT_POST, 'game', FILTER_SANITIZE_STRING );
+		$section = filter_input( INPUT_POST, 'section', FILTER_SANITIZE_STRING );
+		$query   = "SELECT games.game_id, section_no, row_no, seat_no, ticket_price
 					FROM tickets INNER JOIN games
 					ON tickets.game_id = games.game_id RIGHT OUTER JOIN seats
 					ON tickets.seat_id = seats.seat_id
 					WHERE cust_id IS NULL
 					AND section_no = '$section'
 					AND tickets.game_id = '$game'";
-
-		$result = mysqli_query( $db->connection(), $query );
+		$result  = mysqli_query( $db->connection(), $query );
 
 		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['section_no'] . "</td>";

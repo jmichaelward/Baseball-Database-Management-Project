@@ -11,8 +11,8 @@
 	<?php
 	include_once './src/class.db.php';
 	$db = DB::get_instance();
-	$date = $_POST['date'];
-	$crew = $_POST['crew'];
+	$date = filter_input( INPUT_POST, 'date', FILTER_SANITIZE_STRING );
+	$crew = filter_input( INPUT_POST, 'crew', FILTER_SANITIZE_STRING );
 	$query = "SELECT DISTINCT(crew_id), game_datetime, stad_name, 
 					hometeam, awayteam FROM umpschedule 
 					WHERE game_datetime LIKE '$date%'
@@ -35,8 +35,8 @@
 			<th>Away team</th>
 
 			<?php
-			$date = $_POST['date'];
-			$crew = $_POST['crew'];
+			$date = filter_input( INPUT_POST, 'date', FILTER_SANITIZE_STRING );
+			$crew = filter_input( INPUT_POST, 'crew', FILTER_SANITIZE_STRING );
 
 			$query = "SELECT DISTINCT(crew_id), game_datetime, stad_name, 
 					hometeam, awayteam FROM umpschedule 
