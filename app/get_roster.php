@@ -35,7 +35,7 @@
 	$db->disconnect();
 	?>
 
-	<p>Click <a href="select_roster.html">here</a> to select another team's roster.
+	<p>Click <a href="select_roster.php">here</a> to select another team's roster.
 	<table>
 		<tr><strong>Pitchers</strong>
 			<th>Position</th>
