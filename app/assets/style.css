@@ -9,7 +9,8 @@ body {
 
 #container {
     margin: 0 auto;
-    width: 700px;
+    max-width: 1200px;
+    width: 95%;
 }
 
 table {
