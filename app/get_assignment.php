@@ -55,7 +55,7 @@
 
 			$db->disconnect();
 			?>
-			<p>Click <a href="ump_assignments.html">here</a> to search for another assignment.
+			<p>Click <a href="ump_assignments.php">here</a> to search for another assignment.
 
 	</table>
 </div>

@@ -26,6 +26,6 @@ echo "<p>Thank you for submitting $fname $lname to the database.</p>";
 $db->disconnect();
 ?>
 
-<p>Click <a href="player_new.html">here</a> to submit another player.</p>
+<p>Click <a href="player_new.php">here</a> to submit another player.</p>
 </body>
 </html>

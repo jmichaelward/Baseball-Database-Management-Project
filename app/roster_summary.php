@@ -8,7 +8,7 @@
 <div id="container">
 	<h1>MLB Player Summary</h1>
 	<p>Below is a list of MLB players, sorted by team.
-		<a href="player_new.html">Add new player.</a></p>
+		<a href="player_new.php">Add new player.</a></p>
 
 	<?php
 	include_once './src/class.db.php';

@@ -8,7 +8,7 @@
 <div id="container">
 	<h1>MLB Games Summary</h1>
 	<p>Below is a list scheduled MLB games, ordered by date.
-		<a href="game_new.html">Add new game.</a></p>
+		<a href="game_new.php">Add new game.</a></p>
 
 	<table>
 		<tr>

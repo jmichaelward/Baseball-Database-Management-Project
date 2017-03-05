@@ -6,7 +6,7 @@
 </head>
 <body>
 <p><strong>User views</strong><br>
-	<a href="select_roster.html">MLB Rosters (Web user view)</a><br>
+	<a href="select_roster.php">MLB Rosters (Web user view)</a><br>
 	<a href="free_agent_summary.php">Free Agents (General manager view)</a><br>
 	<a href="ticket_search.html">Ticket search (Stadium user view)</a><br>
 	<a href="ump_assignments.html">Umpire Game Assignments</a></p>

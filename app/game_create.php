@@ -27,6 +27,6 @@ echo "<p>Thank you for submitting this game to the database.</p>";
 $db->disconnect();
 ?>
 
-<p>Click <a href="game_new.html">here</a> to submit another game.</p>
+<p>Click <a href="game_new.php">here</a> to submit another game.</p>
 </body>
 </html>

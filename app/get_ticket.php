@@ -57,7 +57,7 @@
 		?>
 	</table>
 
-	<p><a href="ticket_search.html">Perform another search.</a></p>
+	<p><a href="ticket_search.php">Perform another search.</a></p>
 </div>
 </body>
 </html>
