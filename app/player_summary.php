@@ -18,7 +18,7 @@
 	$query = "SELECT COUNT(team_name) FROM playerteams";
 	$result = mysqli_query( $db->connection(), $query ) or die( mysqli_error( $db->connection() ) );
 
-	while ( $row = mysqli_fetch_array( $result ) ) {
+	while ( $row = mysqli_fetch_assoc( $result ) ) {
 		echo "There are " . $row['COUNT(team_name)'] . " players in the database.";
 
 	}
@@ -35,7 +35,7 @@
 		$query  = "SELECT * FROM playerteams ORDER BY team_name, position, player_lastname";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['position'] . "</td>";
 			echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td>";
 			echo "<td>" . $row['team_name'] . "</td></tr>";

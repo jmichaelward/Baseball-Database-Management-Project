@@ -10,7 +10,7 @@
 		$query = "SELECT * FROM teams WHERE team_id = '$team'";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo $row['team_name'] . " team roster";
 		}
 
@@ -28,7 +28,7 @@
 	$query  = "SELECT * FROM teams WHERE team_id = '$team'";
 	$result = mysqli_query( $db->connection(), $query );
 
-	while ( $row = mysqli_fetch_array( $result ) ) {
+	while ( $row = mysqli_fetch_assoc( $result ) ) {
 		echo "<h1>" . $row['team_name'] . "</h1>";
 	}
 

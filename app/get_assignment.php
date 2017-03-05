@@ -19,7 +19,7 @@
 					and crew_id = '$crew'";
 	$result = mysqli_query( $db->connection(), $query );
 
-	while ( $row = mysqli_fetch_array( $result ) ) {
+	while ( $row = mysqli_fetch_assoc( $result ) ) {
 		echo "<h1>Game assignment for Umpire Crew #$crew on $date</h1>";
 	}
 

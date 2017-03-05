@@ -22,7 +22,7 @@
 				ORDER BY player_lastname";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['position'] . "</td>";
 			echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td></tr>";
 		}
@@ -42,7 +42,7 @@
 				ORDER BY player_lastname";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['position'] . "</td>";
 			echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td></tr>";
 		}
@@ -64,7 +64,7 @@
 				ORDER BY position, player_lastname";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['position'] . "</td>";
 			echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td></tr>";
 		}
@@ -84,7 +84,7 @@
 				ORDER BY position, player_lastname";
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['position'] . "</td>";
 			echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td></tr>";
 		}

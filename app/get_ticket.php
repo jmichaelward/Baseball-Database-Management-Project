@@ -19,7 +19,7 @@
 
 	$result = mysqli_query( $db->connection(), $query );
 
-	while ( $row = mysqli_fetch_array( $result ) ) {
+	while ( $row = mysqli_fetch_assoc( $result ) ) {
 		echo "Available tickets in Section $section" . "<br>";
 		echo $row['awayteam'] . " Vs. " . $row['hometeam'] . " at " . $row['stad_name'] . "<br>";
 		echo $row['game_datetime'];
@@ -46,7 +46,7 @@
 
 		$result = mysqli_query( $db->connection(), $query );
 
-		while ( $row = mysqli_fetch_array( $result ) ) {
+		while ( $row = mysqli_fetch_assoc( $result ) ) {
 			echo "\n<tr><td>" . $row['section_no'] . "</td>";
 			echo "<td>" . $row['row_no'] . "</td>";
 			echo "<td>" . $row['seat_no'] . "</td>";
