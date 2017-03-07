@@ -54,13 +54,13 @@ class Query {
 	 */
 	public function players_by_position( $position, $team_id ) {
 		$where  = is_array( $position ) ? ' IN ("' . implode( '", "', $position ) . '")' : " = '{$position}'";
-		$query_string  = "SELECT * FROM players
-				LEFT JOIN teams
-				ON players.team_id = teams.team_id
+		$query_string  = "SELECT * FROM players 
+				LEFT JOIN teams ON players.team_id = teams.team_id 
 				WHERE position {$where}
-				AND players.team_id = '$team_id'
+				AND players.team_id = :team_id
 				ORDER BY player_lastname";
 		$query = $this->pdo->prepare( $query_string );
+		$query->bindParam( ':team_id', $team_id, PDO::PARAM_STR );
 		$query->execute();
 
 		return $query->fetchAll();
