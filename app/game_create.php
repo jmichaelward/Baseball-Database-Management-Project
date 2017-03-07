@@ -12,7 +12,7 @@ $umpcrew   = filter_input( INPUT_POST, 'umpcrew', FILTER_SANITIZE_STRING );
 ?>
 
 <article>
-	<?php if ( ( new Query() )->create_game( $datetime, $home_team, $away_team, $stadium, $umpcrew ) ) : ?>
+	<?php if ( ( new Query )->create_game( $datetime, $home_team, $away_team, $stadium, $umpcrew ) ) : ?>
 		<p>Success! Thank you for submitting this game to the database.</p>
 		<p>Click <a href="game_new.php">here</a> to submit another game.</p>
 	<?php else : ?>
