@@ -10,9 +10,9 @@ class Query {
 	private $db;
 
 	/**
-	 * @var array
+	 * @var PDO
 	 */
-	private $results = [];
+	private $pdo;
 
 	/**
 	 * Query constructor.
@@ -22,43 +22,45 @@ class Query {
 			include_once 'class.db.php';
 		}
 
-		$this->db = DB::get_instance();
-	}
-
-	/**
-	 * @param $query_string
-	 *
-	 * @return array
-	 */
-	private function perform( $query_string ) {
-		return $this->process_results( mysqli_query( $this->db->connection(), $query_string ) );
-	}
-
-	/**
-	 * @param $results
-	 *
-	 * @return array
-	 */
-	private function process_results( $results ) {
-		if ( $results->num_rows > 0 ) {
-			while ( $row = mysqli_fetch_assoc( $results ) ) {
-				array_push( $this->results, $row );
-			}
-		}
-
-		return $this->results;
+		$this->db  = DB::get_instance();
+		$this->pdo = $this->db->pdo();
 	}
 
 	/**
 	 * @return array
 	 */
 	public function all_teams() {
-		return $this->perform( "SELECT * FROM teams ORDER BY team_name" );
+		$query = $this->pdo->prepare( "SELECT * FROM teams ORDER BY team_name" );
+		$query->execute();
+
+		return $query->fetchAll( PDO::FETCH_ASSOC );
 	}
 
 	public function team_by_id( $id ) {
-		$results = $this->perform( "SELECT * FROM teams WHERE team_id = '$id'" );
+		$query = $this->pdo->prepare( "SELECT * FROM teams WHERE team_id = :id" );
+		$query->bindParam( ':id', $id, PDO::PARAM_INT );
+		$query->execute();
 
-		return count( $results ) === 1 ? $results[0] : [];
+		return $query->fetch( PDO::FETCH_ASSOC );
+	}
+
+	/**
+	 * @param $team_id
+	 * @param $position
+	 *
+	 * @return array
+	 */
+	public function players_by_position( $team_id, $position ) {
+		$where  = is_array( $position ) ? ' IN ("' . implode( '", "', $position ) . '")' : " = '{$position}'";
+		$query_string  = "SELECT * FROM players
+				LEFT JOIN teams
+				ON players.team_id = teams.team_id
+				WHERE position {$where}
+				AND players.team_id = '$team_id'
+				ORDER BY player_lastname";
+		$query = $this->pdo->prepare( $query_string );
+		$query->execute();
+
+		return $query->fetchAll();
 	}
 }

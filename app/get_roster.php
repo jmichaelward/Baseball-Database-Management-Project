@@ -1,9 +1,12 @@
 <?php
 include_once './src/class.query.php';
 include_once './src/class.team.php';
+include_once './src/class.player.php';
 
-$team_id   = $_REQUEST['team'];
-$team      = new Team( ( new Query )->team_by_id( $team_id ) );
+$request_type = isset( $_POST['team'] ) ? INPUT_POST : INPUT_GET;
+$team_id      = filter_input( $request_type, 'team', FILTER_SANITIZE_NUMBER_INT );
+$team         = new Team( ( new Query )->team_by_id( $team_id ) );
+
 $positions = [
 	'Pitchers'           => 'P',
 	'Catchers'           => 'C',
@@ -11,7 +14,7 @@ $positions = [
 	'Outfielders'        => [ 'LF', 'CF', 'RF' ],
 	'Designated Hitters' => 'DH'
 ];
-$title = $team->name() . ' team roster';
+$title     = $team->name() . ' team roster';
 $db        = DB::get_instance();
 
 include 'header.php';
@@ -29,22 +32,15 @@ include 'header.php';
 			</tr>
 
 			<?php
-			$where  = is_array( $position ) ? ' IN ("' . implode( '", "', $position ) . '")' : " = '{$position}'";
-			$query  = "SELECT * FROM players
-				LEFT JOIN teams
-				ON players.team_id = teams.team_id
-				WHERE position {$where}
-				AND players.team_id = '$team_id'
-				ORDER BY position, player_lastname";
-			$result = mysqli_query( $db->connection(), $query );
+			$players = ( new Query )->players_by_position( $team_id, $position );
 
-			while ( $row = mysqli_fetch_assoc( $result ) ) {
-				echo "\n<tr><td>" . $row['position'] . "</td>";
-				echo "<td>" . $row['player_firstname'] . "&nbsp" . $row['player_lastname'] . "</td>";
-				echo "<td>" . $row['team_name'] . "</td></tr>";
+			foreach ( $players as $data ) {
+				$player = new Player( $data );
+
+				echo "\n<tr><td>{$player->position()}</td>";
+				echo "<td>{$player->name()}</td>";
+				echo "<td>{$team->name()}</td>";
 			}
-
-			$db->disconnect();
 			?>
 		</table>
 	<?php endforeach; ?>

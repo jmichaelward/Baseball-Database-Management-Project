@@ -35,6 +35,11 @@ class DB {
 	private static $instance;
 
 	/**
+	 * @var string
+	 */
+	private $type;
+
+	/**
 	 * DB constructor.
 	 */
 	private function __construct() {
@@ -42,6 +47,7 @@ class DB {
 		$this->name     = 'baseball';
 		$this->user     = 'root';
 		$this->password = 'root';
+		$this->type = 'mysql';
 	}
 
 	/**
@@ -53,6 +59,10 @@ class DB {
 		}
 
 		return self::$instance;
+	}
+
+	public function pdo() {
+		return new PDO( "{$this->type}:host={$this->host};dbname={$this->name}", $this->user, $this->password );
 	}
 
 	/**
