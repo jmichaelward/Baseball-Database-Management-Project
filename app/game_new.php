@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Matchup Entry Form</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-
+<?php $title = 'MLB Game Scheduling Form'; ?>
 <?php
+include 'header.php';
 include_once './src/class.query.php';
 include_once './src/class.team.php';
 
@@ -14,9 +9,7 @@ $teams = array_map( function ( $team ) {
 	return new Team( $team );
 }, $query );
 ?>
-<body>
-<div id="container">
-	<h1>MLB Matchup Entry Form</h1>
+<article>
 	<p>Please use this form to add new games to the database.
 		<a href="game_summary.php">View all games</a>
 	</p>
@@ -93,6 +86,5 @@ $teams = array_map( function ( $team ) {
 			</tr>
 		</table>
 	</form>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Games Summary</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<div id="container">
-	<h1>MLB Games Summary</h1>
+<?php $title = 'MLB Games Summary'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<p>Below is a list scheduled MLB games, ordered by date.
 		<a href="game_new.php">Add new game.</a></p>
 
@@ -32,6 +26,5 @@
 		}
 		?>
 	</table>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

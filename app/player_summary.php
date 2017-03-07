@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Player Summary</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-
-<div id="container">
-	<h1>MLB Player Summary</h1>
+<?php $title = 'MLB Player Summary'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<p>Below is a list of MLB players, sorted by team.
 		<a href="player_new.php">Add new player.</a></p>
 
@@ -45,6 +38,5 @@
 		$db->disconnect();
 		?>
 	</table>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

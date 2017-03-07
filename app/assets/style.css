@@ -7,10 +7,28 @@ body {
     background-color: white;
 }
 
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul li,
+ol li {
+    list-style: none;
+}
+
 #container {
     margin: 0 auto;
     max-width: 1200px;
     width: 95%;
+}
+
+.menu__items {
+    display: flex;
+}
+
+.menu__item {
+    flex: 1;
 }
 
 table {

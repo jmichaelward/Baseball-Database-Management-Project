@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Umpire Assignment Search</title>
-	<link href="/assets/style.css" ref="stylesheet" type="text/css"/>
-</head>
-<body>
-<div id="container">
-	<h1>Umpire Assignment Search</h1>
+<?php $title = 'Umpire Assignment Search'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<p>Select a date and crew to find game assignment.</p>
 	<form method="POST" action="get_assignment.php">
 		<table>
@@ -45,6 +39,5 @@
 			</tr>
 		</table>
 	</form>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

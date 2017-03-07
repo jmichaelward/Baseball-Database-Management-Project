@@ -11,20 +11,13 @@ $positions = [
 	'Outfielders'        => [ 'LF', 'CF', 'RF' ],
 	'Designated Hitters' => 'DH'
 ];
+$title = $team->name() . ' team roster';
 $db        = DB::get_instance();
+
+include 'header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title><?php echo $team->name() . ' team roster'; ?></title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-
-<body>
-<div id="container">
-	<h1><?php echo $team->name(); ?></h1>
+<article>
 	<p>Click <a href="select_roster.php">here</a> to select another team's roster.</p>
 
 	<?php foreach ( $positions as $section => $position ) : ?>
@@ -55,6 +48,5 @@ $db        = DB::get_instance();
 			?>
 		</table>
 	<?php endforeach; ?>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

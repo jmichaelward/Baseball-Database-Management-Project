@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Umpire Assignment
-	</title>
-	<link href="/assets/style.css" rel="stylesheet" type=text/css"/>
-</head>
-<body>
-<div id="container">
+<?php $title = 'Umpire Assignment'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<?php
 	include_once './src/class.db.php';
 	$db = DB::get_instance();
@@ -56,8 +49,6 @@
 			$db->disconnect();
 			?>
 			<p>Click <a href="ump_assignments.php">here</a> to search for another assignment.
-
 	</table>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

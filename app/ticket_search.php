@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Target Field Ticket Search</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-	<div id="container">
-		<h1>Target Field Ticket Search</h1>
+<?php $title = 'Ticket Search'; ?>
+<?php include 'header.php'; ?>
+<article>
 		<p>Select a game and section to find available tickets.</p>
 		<form method="POST" action="get_ticket.php">
 			<table>
@@ -37,6 +31,5 @@
 				</tr>
 			</table>
 		</form>
-	</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

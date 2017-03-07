@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Available Tickets</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<div id="container">
-	<h1>Search Results</h1>
+<?php $title = 'Available Tickets'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<?php
 	include_once './src/class.db.php';
 
@@ -54,6 +47,5 @@
 	</table>
 
 	<p><a href="ticket_search.php">Perform another search.</a></p>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

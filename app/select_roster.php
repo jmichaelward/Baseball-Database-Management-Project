@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Rosters</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-
+<?php $title = 'MLB 40-Man Rosters'; ?>
 <?php
+include 'header.php';
 include_once './src/class.query.php';
 include_once './src/class.team.php';
 ?>
-
-<body>
-<div id="container">
-	<h1>MLB 40-Man Rosters</h1>
+<article>
 	<p>Select a team below to view its 40-man roster.
 		<a href="player_summary.php">View all players</a>
 	</p>
@@ -39,6 +31,5 @@ include_once './src/class.team.php';
 			</tr>
 		</table>
 	</form>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

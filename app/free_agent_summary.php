@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Free Agent Summary</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<div id="container">
-	<h1>MLB Free Agent Summary</h1>
+<?php $title = 'MLB Free Agent Summary'; ?>
+<?php include 'header.php'; ?>
+<article>
 	<p>Below is a list of MLB free agent players. These players are not currently signed by any team.</p>
 	<table>
 		<tr><strong>Pitchers</strong>
@@ -92,6 +86,5 @@
 		$db->disconnect();
 		?>
 	</table>
-</div>
-</body>
-</html>
+</article>
+<?php include 'footer.php'; ?>

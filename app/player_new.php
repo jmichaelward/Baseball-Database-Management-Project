@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>MLB Player Entry Form</title>
-	<link href="/assets/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-	<div id="container">
-		<h1>MLB Player Entry Form</h1>
-		<p>Please use this form to add new players to the database.
-		<a href="player_summary.php">View all players</a></p>
-		<form method="POST" action="player_create.php">
-			<table>
-				<tr>
-					<td>Player First Name</td><td><input type="text" name="fname"/></td>
-				</tr>
-				<tr>
-					<td>Player Last Name</td><td><input type="text" name="lname"/></td>
-				</tr>
-				<tr>
-					<td>Player Position</td><td>
+<?php $title = 'MLB Player Entry Form'; ?>
+<?php include 'header.php'; ?>
+<article>
+	<p>Please use this form to add new players to the database.
+		<a href="player_summary.php">View all players</a>
+	</p>
+	<form method="POST" action="player_create.php">
+		<table>
+			<tr>
+				<td>Player First Name</td>
+				<td><input type="text" name="fname"/></td>
+			</tr>
+			<tr>
+				<td>Player Last Name</td>
+				<td><input type="text" name="lname"/></td>
+			</tr>
+			<tr>
+				<td>Player Position</td>
+				<td>
 					<!-- TODO: Populate this dynamically with a database query -->
 					<input type="radio" name="position" value="P"/>P<br>
 					<input type="radio" name="position" value="C"/>C<br>
@@ -32,11 +30,11 @@
 					<input type="radio" name="position" value="DH"/>DH<br>
 					<input type="radio" name="position" value="IF"/>IF<br>
 					<input type="radio" name="position" value="OF"/>OF<br></td>
-				</tr>
-				<tr>
-					<td>Team</td>
-					<!-- TODO: Populate this dynamically with a database query -->
-					<td>Which team does this player play for?<br>
+			</tr>
+			<tr>
+				<td>Team</td>
+				<!-- TODO: Populate this dynamically with a database query -->
+				<td>Which team does this player play for?<br>
 					<input type="radio" name="team" value="1"/>Baltimore Orioles<br>
 					<input type="radio" name="team" value="2"/>Boston Red Sox<br>
 					<input type="radio" name="team" value="3"/>New York Yankees<br>
@@ -68,12 +66,13 @@
 					<input type="radio" name="team" value="29"/>San Diego Padres<br>
 					<input type="radio" name="team" value="30"/>San Francisco Giants<br>
 					<input type="radio" name="team" value=""/>NONE<br>
-				</tr>
-				<tr>
-					<td></td><td><input type="submit" value="Save Player"/></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-</body>
-</html>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save Player"/></td>
+			</tr>
+		</table>
+	</form>
+</article>
+<?php include 'footer.php'; ?>
+
