@@ -34,8 +34,14 @@ ol li {
 table {
     background-color: beige;
     border: 2px solid black;
+    table-layout: fixed;
     padding: 10px;
     width: 100%;
+}
+
+table th {
+    padding: 5px;
+    text-align: left;
 }
 
 td {

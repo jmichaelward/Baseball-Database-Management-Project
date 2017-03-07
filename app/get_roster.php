@@ -38,7 +38,6 @@ include 'header.php';
 
 				echo "\n<tr><td>{$player->position()}</td>";
 				echo "<td>{$player->name()}</td>";
-				echo "<td>{$team->name()}</td>";
 			}
 			?>
 		</table>
