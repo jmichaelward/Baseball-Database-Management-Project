@@ -14,8 +14,7 @@ $positions = [
 	'Outfielders'        => [ 'LF', 'CF', 'RF' ],
 	'Designated Hitters' => 'DH'
 ];
-$title     = $team->name() . ' team roster';
-$db        = DB::get_instance();
+$title = $team->name() . ' team roster';
 
 include 'header.php';
 ?>
