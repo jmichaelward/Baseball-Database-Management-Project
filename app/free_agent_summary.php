@@ -4,12 +4,10 @@ include 'functions.php';
 include_once './src/class.query.php';
 include_once './src/class.player.php';
 include 'header.php';
-
-$positions = get_player_positions();
 ?>
 <article>
 	<p>Below is a list of MLB free agent players. These players are not currently signed by any team.</p>
-	<?php foreach ( $positions as $section => $position ) : ?>
+	<?php foreach ( get_player_positions() as $section => $position ) : ?>
 		<h2><?php echo $section; ?></h2>
 		<table>
 			<tr>
