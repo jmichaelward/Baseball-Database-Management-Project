@@ -23,17 +23,15 @@ include 'header.php';
 	<p>Click <a href="select_roster.php">here</a> to select another team's roster.</p>
 
 	<?php foreach ( $positions as $section => $position ) : ?>
+		<h2><?php echo $section; ?></h2>
 		<table>
 			<tr>
-				<h2><?php echo $section; ?></h2>
 				<th>Position</th>
 				<th>Player Name</th>
 			</tr>
 
 			<?php
-			$players = ( new Query )->players_by_position( $team_id, $position );
-
-			foreach ( $players as $data ) {
+			foreach ( ( new Query )->players_by_position( $team_id, $position ) as $data ) {
 				$player = new Player( $data );
 
 				echo "\n<tr><td>{$player->position()}</td>";
