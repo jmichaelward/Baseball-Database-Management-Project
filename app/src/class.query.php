@@ -83,4 +83,17 @@ class Query {
 
 		return $query->fetchAll();
 	}
+
+	public function create_game( $datetime, $home_team, $away_team, $stadium, $umpcrew ) {
+		$query_string = "INSERT INTO games (game_datetime, hometeam_id, awayteam_id, stad_id, crew_id) 
+			VALUES (:gamedate, :hometeam, :awayteam, :stadium, :umpcrew)";
+		$query = $this->pdo->prepare( $query_string );
+		$query->bindParam( ':gamedate', $datetime, PDO::PARAM_STR );
+		$query->bindParam( ':hometeam', $home_team, PDO::PARAM_INT );
+		$query->bindParam( ':awayteam', $away_team, PDO::PARAM_INT );
+		$query->bindParam( ':stadium', $stadium, PDO::PARAM_INT );
+		$query->bindParam( ':umpcrew', $umpcrew, PDO::PARAM_INT );
+
+		return $query->execute(); // Let 'em know that it worked.
+	}
 }
