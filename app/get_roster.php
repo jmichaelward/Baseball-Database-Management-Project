@@ -32,10 +32,12 @@ include 'header.php';
 
 			<?php
 			foreach ( ( new Query )->players_by_position( $team_id, $position ) as $data ) {
+				echo '<tr>';
 				$player = new Player( $data );
 
-				echo "\n<tr><td>{$player->position()}</td>";
+				echo "<td>{$player->position()}</td>";
 				echo "<td>{$player->name()}</td>";
+				echo '</tr>';
 			}
 			?>
 		</table>
